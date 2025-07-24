@@ -1,18 +1,31 @@
 import React from "react";
 import * as S from "./styles";
 import { FiShoppingCart } from "react-icons/fi";
+import { AiFillStar, AiOutlineStar} from "react-icons/ai";
+import {Product} from "../../data/Products"
 
-export const ProductCards: React.FC = () => {
+interface ProductCardsProps {
+    product: Product;
+}
+
+export const ProductCards: React.FC<ProductCardsProps> = ({product}) => {
     return(
         <S.Card>
-            <S.ProductImage src = "https://images.tcdn.com.br/img/img_prod/275189/camisa_azul_royal_100_poliester_para_sublimacao_m_2701_1_20200722153204.jpg" alt = ""/>
+            <S.ProductImage src = {product.image} alt = {product.description}/>
 
-            <S.ProductTitle>Produto 1</S.ProductTitle>
+            <S.ProductTitle>{product.title}</S.ProductTitle>
 
             <S.ReviewPriceContainer>
-                <S.Review>4.1</S.Review>
+                <S.Review>
 
-                <S.Price>R$20,00</S.Price>
+                    { Array.from({length: 5}).map((_, index) => {
+                        // _ signfica que estou ignorando o valor dele e pegando so o index fo array
+                        return index < Math.round(product.rating.rate) ? <AiFillStar key={index}/> : <AiOutlineStar key={index}/>
+                    })}
+                    ({product.rating.rate})
+                </S.Review>
+
+                <S.Price>{product.price}</S.Price>
             </S.ReviewPriceContainer>
 
             <S.AddToCardButtonWrapper>
