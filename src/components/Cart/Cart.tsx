@@ -4,6 +4,7 @@ import { FiShoppingCart, FiTrash2 } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { RootReducer, rootReducer } from "../../redux/roote-reducer";
 import { Product } from "../../data/Products";
+import { removeProduct } from "../../redux/Cart/cart-slice";
 
 
 interface CardProps{
@@ -21,10 +22,12 @@ export const Cart: React.FC<CardProps> = ({showCart}) => {
     const dispatch = useDispatch();
 
     function handleRemoveProductFromCart(product: Product){
-        dispatch({
-            type: 'cart/remove-product',
-            payload: product
-        });
+        // dispatch({
+        //     type: 'cart/remove-product',
+        //     payload: product
+        // });
+
+        dispatch(removeProduct(product));
     }
     return(
         <S.Container $showCart = {showCart}>
