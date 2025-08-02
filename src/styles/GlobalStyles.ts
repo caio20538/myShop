@@ -10,4 +10,14 @@ export const GlobalStyles = createGlobalStyle`
     body{
         background-color: #f5f5f5;
     }
+
+    button{
+        cursor: pointer;
+        transition: filter 0.3s;
+
+        &:hover{
+            filter: brightness(1.2);
+            transition: filter 0.3s;
+        }
+    }
 `;

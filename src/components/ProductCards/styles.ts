@@ -73,3 +73,23 @@ export const AddToCardButton = styled.button`
         font-size: 0.8rem;
     }
 `;
+
+export const RemoveToCardButton = styled.button`
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    background-color: violet;
+    font-size: 0.8rem;
+    color: black;
+    margin: 1rem;
+    justify-content: center;
+
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    svg{
+        font-size: 0.8rem;
+    }
+`;
